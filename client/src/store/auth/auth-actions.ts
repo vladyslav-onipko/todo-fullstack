@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SignupInputValues, SigninInputValues, ResponseUserAuthData } from '../../models/user';
+import { type ISignupInputValues, type ISigninInputValues, type IResponseUserAuthData } from '../../models/user';
 import { setUserData } from './auth-slice';
 import { AppDispatch } from '..';
 import { setUserCookies, getUserCookies, removeUserCookies } from '../../utils/user-cookies';
@@ -8,12 +8,12 @@ import { HttpErrorMessage } from '../../utils/constants';
 
 let tokenTimer: ReturnType<typeof setTimeout>;
 
-export const auth = (mode: 'signin' | 'signup', userData: SignupInputValues | SigninInputValues) => {
+export const auth = (mode: 'signin' | 'signup', userData: ISignupInputValues | ISigninInputValues) => {
   return async (dispatch: AppDispatch) => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/api/users/${mode === 'signin' ? 'signin' : 'signup'}`;
+    const url = `${import.meta.env.VITE_BACKEND_URL}/api/users/${mode === 'signin' ? 'signin' : 'signup'}`;
 
     try {
-      const response = (await axios.post(url, userData)) as ResponseUserAuthData;
+      const response = (await axios.post(url, userData)) as IResponseUserAuthData;
       const tokenExpirationDate = new Date().getTime() + response.data.tokenExpiration; // calculate expires token time in future
 
       dispatch(setUserData({ isAuth: true, token: response.data.token, user: response.data.user }));

@@ -2,9 +2,9 @@ import AuthForm from '../components/auth/AuthForm';
 
 const Auth: React.FC = () => {
   return (
-    <div>
+    <section className="section">
       <AuthForm />
-    </div>
+    </section>
   );
 };
 

@@ -4,8 +4,8 @@ import cors from 'cors';
 
 import connectDB from './database/db';
 import { httpErrorMiddleware, notFoundErrorMiddleware } from './middleware/global-error/error';
-import { authMiddleware } from './middleware/auth/auth';
 import userRoutes from './routes/users-routes';
+import todoRoutes from './routes/todos-routes';
 
 const app = express();
 
@@ -15,7 +15,11 @@ app.use(cors());
 // registering bodyParser for parsing body fields
 app.use(bodyParser.json());
 
+// registering user routes
 app.use('/api/users', userRoutes);
+
+//registering todo routes
+app.use('/api/todo', todoRoutes);
 
 // registering a 404 error handling if any of the routes above don't work
 app.use(notFoundErrorMiddleware);

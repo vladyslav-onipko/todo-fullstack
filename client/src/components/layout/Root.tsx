@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import Header from './Header';
 
@@ -25,6 +26,7 @@ const Root = () => {
       </div>
       <main className="w-full h-screen relative" role="main">
         <Outlet />
+        <Toaster />
       </main>
     </div>
   );

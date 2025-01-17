@@ -1,17 +1,17 @@
 import { Schema, model } from 'mongoose';
 
 export interface ITodoList {
-  title: string;
-  todos: Schema.Types.ObjectId;
+  name: string;
+  todos: Schema.Types.ObjectId[];
   creator: Schema.Types.ObjectId;
-  viewers: Schema.Types.ObjectId;
+  viewers: Schema.Types.ObjectId[];
   createdAt: Date;
   updatedAt: Date;
 }
 
 const TodoListSchema = new Schema<ITodoList>(
   {
-    title: { type: String, required: true },
+    name: { type: String, required: true },
     todos: [{ type: Schema.Types.ObjectId, ref: 'Todo' }],
     creator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     viewers: [{ type: Schema.Types.ObjectId, ref: 'User' }],

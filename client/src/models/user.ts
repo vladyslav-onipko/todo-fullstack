@@ -1,37 +1,37 @@
-export type User = {
+export type IUser = {
   id: string;
   name: string;
   email: string;
 };
 
-export interface UserAuthData {
+export interface IUserAuthData {
   token: string | null;
   isAuth: boolean;
-  user: User;
+  user: IUser;
 }
 
-export interface ResponseUserAuthData {
+export interface IResponseUserAuthData {
   data: {
     message: string;
     token: string;
     tokenExpiration: number;
-    user: User;
+    user: IUser;
   };
 }
 
-export interface SignupInputValues {
+export interface ISignupInputValues {
   name: string;
   email: string;
   password: string;
 }
 
-export interface SigninInputValues {
+export interface ISigninInputValues {
   email: string;
   password: string;
 }
 
-export interface UserCookiesData {
-  user: User;
+export interface IUserCookiesData {
+  user: IUser;
   token: string;
   tokenExpiration: number;
 }

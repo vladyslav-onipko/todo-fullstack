@@ -3,7 +3,6 @@ import { Router } from 'express';
 import userSignupController from '../controllers/user/user-signup';
 import userSigninController from '../controllers/user/user-signin';
 import { checkUserSignupInputs, checkUserSiginInputs } from '../middleware/validation/input';
-// import { authMiddleware } from '../middleware/auth/auth';
 
 const router = Router();
 
@@ -11,6 +10,6 @@ const router = Router();
 router.post('/signup', checkUserSignupInputs(), userSignupController);
 
 // User signin router
-router.get('/signin', checkUserSiginInputs(), userSigninController);
+router.post('/signin', checkUserSiginInputs(), userSigninController);
 
 export default router;

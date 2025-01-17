@@ -29,3 +29,13 @@ export const checkUserSiginInputs = () => {
 
   return [email, password];
 };
+
+export const checkCreateTodoListInputs = () => {
+  const name = body('name', 'Name must not be empty and contain at least 3 characters')
+    .trim()
+    .not()
+    .isEmpty()
+    .isLength({ min: 3 });
+
+  return [name];
+};

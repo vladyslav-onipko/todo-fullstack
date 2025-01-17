@@ -26,3 +26,65 @@ img {
   object-fit: cover;
   width: 100%;
 }
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.ReactModal__Content--after-open {
+  transform: translateY(0);
+}
+
+.ReactModal__Content--before-close {
+  transform: translateY(50px);
+}
+
+@layer components {
+  .modal-overlay {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 40px 10px 40px 10px;
+    position: fixed;
+    top: 0;
+    transition: opacity 0.3s;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .modal-content {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 450px;
+    padding: 60px 20px 50px 20px;
+    position: relative;
+    transform: translateY(50px);
+    transition: transform 0.3s;
+    width: 100%;
+  }
+
+  .section {
+    margin: 100px 0;
+  }
+
+  .container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    width: 100%;
+  }
+}

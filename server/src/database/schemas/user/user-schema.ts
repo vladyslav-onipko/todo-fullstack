@@ -5,7 +5,7 @@ interface IUser {
   name: string;
   email: string;
   password: string;
-  todoLists: Schema.Types.ObjectId;
+  todoLists: Schema.Types.ObjectId[];
 }
 
 const UserSchema = new Schema<IUser>({
